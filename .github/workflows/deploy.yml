@@ -19,12 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Set site and base
-        run: |
-          repo="${GITHUB_REPOSITORY#*/}"
-          echo "SITE=https://${GITHUB_REPOSITORY_OWNER}.github.io" >> "$GITHUB_ENV"
-          # user site (<owner>.github.io) is served from the root
-          if [[ "$repo" == *.github.io ]]; then echo "BASE=/" >> "$GITHUB_ENV"; else echo "BASE=/$repo" >> "$GITHUB_ENV"; fi
       - uses: withastro/action@v5
         with:
           node-version: 24

@@ -1,7 +1,6 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { url } from '../lib/url';
 import Prose from '../layouts/Prose.astro';
 import Gallery from '../layouts/Gallery.astro';
 
@@ -19,7 +18,7 @@ const entries = await Promise.all(
   <ul>
     {entries.map(({ project, Intro }) => (
       <li>
-        <h2><a href={url(`/projects/${project.id}`)}>{project.data.title}</a></h2>
+        <h2><a href={`/projects/${project.id}`}>{project.data.title}</a></h2>
         <div class="row">
           <Prose>{Intro && <Intro />}</Prose>
           <Gallery images={project.data.images} />

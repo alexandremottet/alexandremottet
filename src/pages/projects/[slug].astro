@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { url } from '../../lib/url';
 import Gallery from '../../layouts/Gallery.astro';
 import Prose from '../../layouts/Prose.astro';
 
@@ -15,7 +14,7 @@ const { Content } = await render(project);
 ---
 <Base title={project.data.title}>
   <article>
-    <a href={url('/')} class="back">← Back</a>
+    <a href="/" class="back">← Back</a>
     <h1>{project.data.title}</h1>
     <Gallery images={project.data.images} />
     <Prose><Content /></Prose>
